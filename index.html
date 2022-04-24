@@ -12,6 +12,7 @@
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One" type="text/css">
 	<link rel="stylesheet" href="css/21880118.css">
+	<link rel="stylesheet" href="css/banner.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
 	<header class="container">
 		<nav class="navbar navbar-expand-sm navbar-light px-0">
 			<a class="navbar-brand" href="#" id="logo">
-				<img src="images/logo.png" alt="" >
+				<img src="images/logo.png" alt="">
 			</a>
 			<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#menu"
 				aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,21 +29,21 @@
 			<div class="collapse navbar-collapse justify-content-end" id="menu">
 				<ul class="navbar-nav mt-2 mt-lg-0">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home 
+						<a class="nav-link" href="index.html">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+						<a class="nav-link" href="about.html">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Menu</a>
+						<a class="nav-link" href="menu.html">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Blog</a>
+						<a class="nav-link" href="blog.html">Blog</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Contacts</a>
+						<a class="nav-link" href="contacts.html">Contacts</a>
 					</li>
 
 				</ul>
@@ -125,10 +126,13 @@
 					<h3 class="text-white">About Us</h3>
 					<div>
 						<img src="images/icon-about.png" alt="">
-						<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio animi atque dolorem eligendi quas accusamus
-							assumenda laudantium delectus ut aliquam, natus magni sunt porro at pariatur impedit nostrum cum neque?
+						<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio animi atque dolorem eligendi
+							quas accusamus
+							assumenda laudantium delectus ut aliquam, natus magni sunt porro at pariatur impedit nostrum
+							cum neque?
 						</div>
-						<div class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis minus inventore hic ab adipisci vitae
+						<div class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis minus
+							inventore hic ab adipisci vitae
 							perspiciatis sequi quaerat. Distinctio, temporibus. <a href="#">Read more</a></div>
 					</div>
 				</div>
@@ -145,53 +149,67 @@
 	</div>
 	<!--end about us-->
 	<!--new-->
-	<div>
+	<div class="container py-5">
 		<h3>News</h3>
 		<div class="row">
 			<div class="col">
-				<div>
-					<div>25 <br>Dec.</div>
-					<a href="#">Read more</a>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="date">25.
+							<br>Dec.
+						</div>
+						<a href="#" class="readmore">Read more</a>
+					</div>
+					<div class="col-sm-8">
+						<h4>Accumsan</h4>
+						<div>Lorem ipsum dolor sit.</div>
+					</div>
 				</div>
-				<div>Lorem ipsum dolor sit.</div>
 			</div>
 			<div class="col">
-				<div>
-					<div>25 <br>Dec.</div>
-					<a href="#">Read more</a>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="date">25.
+							<br>Dec.
+						</div>
+						<a href="#" class="readmore">Read more</a>
+					</div>
+					<div class="col-sm-8">
+						<h4>Accumsan</h4>
+						<div>Lorem ipsum dolor sit.</div>
+					</div>
 				</div>
-				<div>Lorem ipsum dolor sit.</div>
 			</div>
 			<div class="col">
-				<div>
-					<div>25 <br>Dec.</div>
-					<a href="#">Read more</a>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="date">25.
+							<br>Dec.
+						</div>
+						<a href="#" class="readmore">Read more</a>
+					</div>
+					<div class="col-sm-8">
+						<h4>Accumsan</h4>
+						<div>Lorem ipsum dolor sit.</div>
+					</div>
 				</div>
-				<div>Lorem ipsum dolor sit.</div>
-			</div>
-			<div class="col">
-				<div>
-					<div>25 <br>Dec.</div>
-					<a href="#">Read more</a>
-				</div>
-				<div>Lorem ipsum dolor sit.</div>
 			</div>
 		</div>
 	</div>
 	<!--end new-->
 	<!--footer-->
-	<footer>
+	<footer class="container-fluid">
 		<nav>
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Menu</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Contacts</a></li>
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="menu.html">Menu</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="contacts.html">Contacts</a></li>
 			</ul>
 		</nav>
 		<div>
-			Ice-cream &copy; 2019 | <a href="#">Privacy</a>
+			Ice-cream &copy; 2019 | <a href="#" class="text-uppercase">Privacy</a>
 		</div>
 	</footer>
 	<!--end footer-->
