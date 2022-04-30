@@ -1,6 +1,6 @@
 function loadData(request, targetId, sourcrId) {
     $.ajax({
-        url: 'http://web1-api.herokuapp.com/api/' + request,
+        url: 'https://web1-api.herokuapp.com/api/' + request,
         cache: false,
         success: function (data) {
             let jsonData = {
