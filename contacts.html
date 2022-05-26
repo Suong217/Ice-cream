@@ -7,11 +7,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One" type="text/css">
     <link rel="stylesheet" href="css/21880118.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+
 </head>
 
 <body>
@@ -68,8 +73,9 @@
 
     <!--contact-->
     <div class="container py-5">
-        <h4 class="text-dark">Contacts</h4>
-        <div class="map"></div>
+        <h3 class="text-dark">Contacts</h3>
+        <div id="map" style="width: 100%; height: 500px;"></div>
+        <script src="js/map.js"></script>
         <div class="row">
             <div class="col">
                 <h3 class="text-dark">Address:</h3>
@@ -87,7 +93,7 @@
                 </div>
             </div>
             <div class="col">
-                <h3>E-mail:</h3>
+                <h3 class="text-dark">E-mail:</h3>
                 <div>
                     <a href="mailto:mail@demolink.org">mail@demolink.org</a> <br>
                     Download information as vCard
@@ -100,13 +106,13 @@
                 Provident quis error praesentium culpa! Commodi eaque omnis harum modi incidunt porro dolore odit
                 perspiciatis nesciunt.</div>
             <div class="font-italic">Send an email. all fields with an * are required</div>
-            <form action="#" method="post">
+            <form action="#" method="post" id="form-contact">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" name="name" id="name" class="form-control" placeholder=""
-                                aria-describedby="helpId">
+                                aria-describedby="helpId" required>
                         </div>
                     </div>
 
@@ -114,7 +120,7 @@
                         <div class="form-group">
                             <label for="email">Email *</label>
                             <input type="email" name="email" id="name" class="form-control" placeholder=""
-                                aria-describedby="helpId">
+                                aria-describedby="helpId" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         </div>
                     </div>
 
@@ -122,15 +128,16 @@
                         <div class="form-group">
                             <label for="subject">Subject *</label>
                             <input type="text" name="subject" id="subject" class="form-control" placeholder=""
-                                aria-describedby="helpId">
+                                aria-describedby="helpId" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="message">Message *</label>
-                    <textarea name="message" id="message" rows="3"></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="3" required></textarea>
                 </div>
                 <div class="text-right">
+                    <div id="msg" class="text-primary float-left"></div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" name="copy" id="copy" value="checkedValue">
@@ -168,7 +175,43 @@
     <script src="js/handlebars-v4.7.7.js"></script>
     <script src="js/21880118.js"></script>
     <script src="js/handlebars-pagination-helper.js"></script>
+    <script>
+        $(document).ready(() => {
+            $("#msg").html("")
+            $("#form-contact").on('submit', (e) => {
+                e.preventDefault();
 
+                $.ajax({
+                    url: "https://web1-api.herokuapp.com/users/authenticate",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        username: 'test',
+                        password: '1c3cr3@m' //icecream
+                    },
+                    success: function (r) {
+                        var formData = $("#form-contact").serialize();
+                        $.ajax({
+                            url: "https://web1-api.herokuapp.com/users/send",
+                            dataType: "json",
+                            type: "POST",
+                            headers: {
+                                "Authorization": 'Bearer ' + r.token
+                            },
+                            data: formData,
+                            success: function (r) {
+                                $("#msg").html(r.message);
+                            },
+                            error: function (xhr, status, error) {
+                                $("#msg").html(error);
+                                //window.alert(error);
+                            }
+                        });
+                    }
+                });
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,6 @@
-function loadData(request, targetId, sourcrId) {
+const AUTH_API = 'https://web1-api.herokuapp.com/users';
+
+function loadData(request, targetId, sourceId) {
     $.ajax({
         url: 'https://web1-api.herokuapp.com/api/' + request,
         cache: false,
@@ -7,8 +9,9 @@ function loadData(request, targetId, sourcrId) {
                 data: data
             };
             let target = $(targetId);
-            let source = $(sourcrId).html();
-            let template = Handlebars.compile(source);``
+            let template = Handlebars.templates[sourceId];
+            //let source = $(sourceId).html();
+            //let template = Handlebars.compile(source);
             $(target).html(template(jsonData));
             console.log(data);
         }
